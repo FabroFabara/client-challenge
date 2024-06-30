@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: id_create_table_orden
+      author: fabriciofabara@gmail.com
+      changes:
+        - createTable:
+            tableName: orden
+            columns:
+              - column:
+                  name: id_orden
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: fecha
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: id_cliente
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+            foreignKeys:
+              - foreignKey:
+                  baseColumnNames: id_cliente
+                  baseTableName: orden
+                  referencedTableName: cliente
+                  referencedColumnNames: id_cliente

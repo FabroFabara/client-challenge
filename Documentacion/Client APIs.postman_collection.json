@@ -1,0 +1,2084 @@
+{
+	"info": {
+		"_postman_id": "9a40e6c4-def9-4c3d-8f58-4799cc4bd726",
+		"name": "Client APIs",
+		"description": "This APIs allow manage the clients of the challenge using Spring Boot\n\nContact Support:\n Name: Client APIs\n Email: fabriciofabara@gmail.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11561737"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "orden",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "API para obtener Ordenes por id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/orden/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"orden",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "OC-2323",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Orden encontrado",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/orden/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"orden",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Orden no encontrado",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/orden/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"orden",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "API para actualizar Orden",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idOrden\": \"OC-2323\",\n  \"fecha\": \"2024-07-02 11:00:12\",\n  \"articulos\": [\n    {\n      \"idArticulo\": 4\n    },\n    {\n      \"idArticulo\": 5\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/orden/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"orden",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "OC-2323",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Orden actualizado",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/orden/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"orden",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Invalid input",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/orden/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"orden",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Orden no encontrado",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/orden/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"orden",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "API para eliminar Orden por id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/orden/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"orden",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "OC-2323",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Orden eliminado",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/orden/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"orden",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Orden no encontrado",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/orden/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"orden",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "API para obtener todos los Ordenes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/orden",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"orden"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Ordenes encontrados",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/orden",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"orden"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"idOrden\": \"<string>\",\n    \"fecha\": \"<dateTime>\",\n    \"articulos\": [\n      {\n        \"idArticulo\": \"<long>\",\n        \"nombreArticulo\": \"<string>\",\n        \"precioUnitario\": \"<double>\"\n      },\n      {\n        \"idArticulo\": \"<long>\",\n        \"nombreArticulo\": \"<string>\",\n        \"precioUnitario\": \"<double>\"\n      }\n    ]\n  },\n  {\n    \"idOrden\": \"<string>\",\n    \"fecha\": \"<dateTime>\",\n    \"articulos\": [\n      {\n        \"idArticulo\": \"<long>\",\n        \"nombreArticulo\": \"<string>\",\n        \"precioUnitario\": \"<double>\"\n      },\n      {\n        \"idArticulo\": \"<long>\",\n        \"nombreArticulo\": \"<string>\",\n        \"precioUnitario\": \"<double>\"\n      }\n    ]\n  }\n]"
+								},
+								{
+									"name": "Ordenes no encontrado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/orden",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"orden"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"idOrden\": \"<string>\",\n    \"fecha\": \"<dateTime>\",\n    \"articulos\": [\n      {\n        \"idArticulo\": \"<long>\",\n        \"nombreArticulo\": \"<string>\",\n        \"precioUnitario\": \"<double>\"\n      },\n      {\n        \"idArticulo\": \"<long>\",\n        \"nombreArticulo\": \"<string>\",\n        \"precioUnitario\": \"<double>\"\n      }\n    ]\n  },\n  {\n    \"idOrden\": \"<string>\",\n    \"fecha\": \"<dateTime>\",\n    \"articulos\": [\n      {\n        \"idArticulo\": \"<long>\",\n        \"nombreArticulo\": \"<string>\",\n        \"precioUnitario\": \"<double>\"\n      },\n      {\n        \"idArticulo\": \"<long>\",\n        \"nombreArticulo\": \"<string>\",\n        \"precioUnitario\": \"<double>\"\n      }\n    ]\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "API para crear Orden",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idOrden\": \"OC-2323\",\n  \"fecha\": \"2024-07-01 10:00:00\",\n  \"cliente\": {\n    \"idCliente\": 8\n  },\n  \"articulos\": [\n    {\n      \"idArticulo\": 4\n    },\n    {\n      \"idArticulo\": 3\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/orden",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"orden"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Orden creado",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"cliente\": {\n    \"apellido\": \"<string>\",\n    \"nombre\": \"<string>\",\n    \"idCliente\": \"<long>\"\n  },\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/orden",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"orden"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Invalid input",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"cliente\": {\n    \"apellido\": \"<string>\",\n    \"nombre\": \"<string>\",\n    \"idCliente\": \"<long>\"\n  },\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/orden",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"orden"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Orden ya existe",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"cliente\": {\n    \"apellido\": \"<string>\",\n    \"nombre\": \"<string>\",\n    \"idCliente\": \"<long>\"\n  },\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/orden",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"orden"
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"idOrden\": \"<string>\",\n  \"fecha\": \"<dateTime>\",\n  \"articulos\": [\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    },\n    {\n      \"idArticulo\": \"<long>\",\n      \"nombreArticulo\": \"<string>\",\n      \"precioUnitario\": \"<double>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "cliente",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "API para obtener Clientes por id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/cliente/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cliente",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "9",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Cliente encontrado",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/cliente/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cliente",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"idCliente\": \"<long>\",\n  \"nombre\": \"<string>\",\n  \"apellido\": \"<string>\",\n  \"ordenes\": [\n    {\n      \"idOrden\": \"<string>\",\n      \"fecha\": \"<dateTime>\",\n      \"articulos\": [\n        {\n          \"idArticulo\": \"<long>\",\n          \"nombreArticulo\": \"<string>\",\n          \"precioUnitario\": \"<double>\"\n        },\n        {\n          \"idArticulo\": \"<long>\",\n          \"nombreArticulo\": \"<string>\",\n          \"precioUnitario\": \"<double>\"\n        }\n      ]\n    },\n    {\n      \"idOrden\": \"<string>\",\n      \"fecha\": \"<dateTime>\",\n      \"articulos\": [\n        {\n          \"idArticulo\": \"<long>\",\n          \"nombreArticulo\": \"<string>\",\n          \"precioUnitario\": \"<double>\"\n        },\n        {\n          \"idArticulo\": \"<long>\",\n          \"nombreArticulo\": \"<string>\",\n          \"precioUnitario\": \"<double>\"\n        }\n      ]\n    }\n  ]\n}"
+										},
+										{
+											"name": "Cliente no encontrado",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/cliente/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cliente",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"idCliente\": \"<long>\",\n  \"nombre\": \"<string>\",\n  \"apellido\": \"<string>\",\n  \"ordenes\": [\n    {\n      \"idOrden\": \"<string>\",\n      \"fecha\": \"<dateTime>\",\n      \"articulos\": [\n        {\n          \"idArticulo\": \"<long>\",\n          \"nombreArticulo\": \"<string>\",\n          \"precioUnitario\": \"<double>\"\n        },\n        {\n          \"idArticulo\": \"<long>\",\n          \"nombreArticulo\": \"<string>\",\n          \"precioUnitario\": \"<double>\"\n        }\n      ]\n    },\n    {\n      \"idOrden\": \"<string>\",\n      \"fecha\": \"<dateTime>\",\n      \"articulos\": [\n        {\n          \"idArticulo\": \"<long>\",\n          \"nombreArticulo\": \"<string>\",\n          \"precioUnitario\": \"<double>\"\n        },\n        {\n          \"idArticulo\": \"<long>\",\n          \"nombreArticulo\": \"<string>\",\n          \"precioUnitario\": \"<double>\"\n        }\n      ]\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "API para actualizar Cliente",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"apellido\": \"Torres\",\n  \"nombre\": \"Pedro\",\n  \"idCliente\": \"9\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/cliente/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cliente",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "9",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Cliente actualizado",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"apellido\": \"<string>\",\n  \"nombre\": \"<string>\",\n  \"idCliente\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/cliente/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cliente",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"apellido\": \"<string>\",\n  \"nombre\": \"<string>\",\n  \"idCliente\": \"<long>\"\n}"
+										},
+										{
+											"name": "Invalid input",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"apellido\": \"<string>\",\n  \"nombre\": \"<string>\",\n  \"idCliente\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/cliente/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cliente",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"apellido\": \"<string>\",\n  \"nombre\": \"<string>\",\n  \"idCliente\": \"<long>\"\n}"
+										},
+										{
+											"name": "Cliente no encontrado",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"apellido\": \"<string>\",\n  \"nombre\": \"<string>\",\n  \"idCliente\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/cliente/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cliente",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"apellido\": \"<string>\",\n  \"nombre\": \"<string>\",\n  \"idCliente\": \"<long>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "API para eliminar cliente por id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/cliente/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cliente",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Cleinte eliminado",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/cliente/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cliente",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "<string>"
+										},
+										{
+											"name": "Cliente no encontrado",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/cliente/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cliente",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "<string>"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "API para obtener todos los Clientes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/cliente",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"cliente"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Clientes encontrados",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/cliente",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cliente"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"idCliente\": \"<long>\",\n    \"nombre\": \"<string>\",\n    \"apellido\": \"<string>\",\n    \"ordenes\": [\n      {\n        \"idOrden\": \"<string>\",\n        \"fecha\": \"<dateTime>\",\n        \"articulos\": [\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          },\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          }\n        ]\n      },\n      {\n        \"idOrden\": \"<string>\",\n        \"fecha\": \"<dateTime>\",\n        \"articulos\": [\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          },\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"idCliente\": \"<long>\",\n    \"nombre\": \"<string>\",\n    \"apellido\": \"<string>\",\n    \"ordenes\": [\n      {\n        \"idOrden\": \"<string>\",\n        \"fecha\": \"<dateTime>\",\n        \"articulos\": [\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          },\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          }\n        ]\n      },\n      {\n        \"idOrden\": \"<string>\",\n        \"fecha\": \"<dateTime>\",\n        \"articulos\": [\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          },\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          }\n        ]\n      }\n    ]\n  }\n]"
+								},
+								{
+									"name": "Cliente no encontrado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/cliente",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cliente"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"idCliente\": \"<long>\",\n    \"nombre\": \"<string>\",\n    \"apellido\": \"<string>\",\n    \"ordenes\": [\n      {\n        \"idOrden\": \"<string>\",\n        \"fecha\": \"<dateTime>\",\n        \"articulos\": [\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          },\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          }\n        ]\n      },\n      {\n        \"idOrden\": \"<string>\",\n        \"fecha\": \"<dateTime>\",\n        \"articulos\": [\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          },\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"idCliente\": \"<long>\",\n    \"nombre\": \"<string>\",\n    \"apellido\": \"<string>\",\n    \"ordenes\": [\n      {\n        \"idOrden\": \"<string>\",\n        \"fecha\": \"<dateTime>\",\n        \"articulos\": [\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          },\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          }\n        ]\n      },\n      {\n        \"idOrden\": \"<string>\",\n        \"fecha\": \"<dateTime>\",\n        \"articulos\": [\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          },\n          {\n            \"idArticulo\": \"<long>\",\n            \"nombreArticulo\": \"<string>\",\n            \"precioUnitario\": \"<double>\"\n          }\n        ]\n      }\n    ]\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "API para crear Cliente",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"apellido\": \"LOPEZ\",\n  \"nombre\": \"JUAN\",\n  \"idCliente\": null\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/cliente",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"cliente"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Cliente creado",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"apellido\": \"<string>\",\n  \"nombre\": \"<string>\",\n  \"idCliente\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/cliente",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cliente"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"apellido\": \"<string>\",\n  \"nombre\": \"<string>\",\n  \"idCliente\": \"<long>\"\n}"
+								},
+								{
+									"name": "Invalid input",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"apellido\": \"<string>\",\n  \"nombre\": \"<string>\",\n  \"idCliente\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/cliente",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cliente"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"apellido\": \"<string>\",\n  \"nombre\": \"<string>\",\n  \"idCliente\": \"<long>\"\n}"
+								},
+								{
+									"name": "Cliente ya existe",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"apellido\": \"<string>\",\n  \"nombre\": \"<string>\",\n  \"idCliente\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/cliente",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cliente"
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"apellido\": \"<string>\",\n  \"nombre\": \"<string>\",\n  \"idCliente\": \"<long>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "articulo",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "API para obtener Articulos por id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/articulo/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"articulo",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "9",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Articulo encontrado",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/articulo/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"articulo",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}"
+										},
+										{
+											"name": "Articulo no encontrado",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/articulo/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"articulo",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "API para actualizar Articulo",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idArticulo\": 9,\n  \"nombreArticulo\": \"IPHONE 15\",\n  \"precioUnitario\": 1000.24\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/articulo/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"articulo",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "9",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Articulo actualizado",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/articulo/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"articulo",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}"
+										},
+										{
+											"name": "Invalid input",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/articulo/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"articulo",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}"
+										},
+										{
+											"name": "Articulo no encontrado",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/articulo/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"articulo",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "API para eliminar Articulo por id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/articulo/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"articulo",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "5",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Articulo eliminado",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/articulo/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"articulo",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Articulo no encontrado",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/articulo/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"articulo",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "API para obtener todos los Articulos",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/articulo",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"articulo"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Articulos encontrados",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/articulo",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"articulo"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"idArticulo\": \"<long>\",\n    \"nombreArticulo\": \"<string>\",\n    \"precioUnitario\": \"<double>\"\n  },\n  {\n    \"idArticulo\": \"<long>\",\n    \"nombreArticulo\": \"<string>\",\n    \"precioUnitario\": \"<double>\"\n  }\n]"
+								},
+								{
+									"name": "Articulos no encontrado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/articulo",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"articulo"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"idArticulo\": \"<long>\",\n    \"nombreArticulo\": \"<string>\",\n    \"precioUnitario\": \"<double>\"\n  },\n  {\n    \"idArticulo\": \"<long>\",\n    \"nombreArticulo\": \"<string>\",\n    \"precioUnitario\": \"<double>\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "API para crear Articulo",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idArticulo\": null,\n  \"nombreArticulo\": \"IPHONE 15\",\n  \"precioUnitario\": 900.90\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/articulo",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"articulo"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Articulo creado",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/articulo",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"articulo"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}"
+								},
+								{
+									"name": "Invalid input",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/articulo",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"articulo"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}"
+								},
+								{
+									"name": "Articulo ya existe",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/articulo",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"articulo"
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"idArticulo\": \"<long>\",\n  \"nombreArticulo\": \"<string>\",\n  \"precioUnitario\": \"<double>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}

@@ -1,0 +1,496 @@
+openapi: 3.0.1
+info:
+  title: Client APIs
+  description: This APIs allow manage the clients of the challenge using Spring Boot
+  contact:
+    name: Client APIs
+    email: fabriciofabara@gmail.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+tags:
+  - name: Orden
+    description: Orden management
+  - name: Articulo
+    description: Articulo management
+  - name: Cliente
+    description: Cliente management
+paths:
+  /api/orden/{id}:
+    get:
+      tags:
+        - Orden
+      summary: API para obtener Ordenes por id
+      operationId: getOrder
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Orden encontrado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrdenDTO'
+        '404':
+          description: Orden no encontrado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrdenDTO'
+    put:
+      tags:
+        - Orden
+      summary: API para actualizar Orden
+      operationId: updateOrder
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrdenDTO'
+        required: true
+      responses:
+        '200':
+          description: Orden actualizado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrdenDTO'
+        '400':
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrdenDTO'
+        '404':
+          description: Orden no encontrado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrdenDTO'
+    delete:
+      tags:
+        - Orden
+      summary: API para eliminar Orden por id
+      operationId: deleteOrder
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Orden eliminado
+        '404':
+          description: Orden no encontrado
+  /api/cliente/{id}:
+    get:
+      tags:
+        - Cliente
+      summary: API para obtener Clientes por id
+      operationId: getClient
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Cliente encontrado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClienteDTO'
+        '404':
+          description: Cliente no encontrado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClienteDTO'
+    put:
+      tags:
+        - Cliente
+      summary: API para actualizar Cliente
+      operationId: updateClient
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClienteRequestDTO'
+        required: true
+      responses:
+        '200':
+          description: Cliente actualizado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClienteRequestDTO'
+        '400':
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClienteRequestDTO'
+        '404':
+          description: Cliente no encontrado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClienteRequestDTO'
+    delete:
+      tags:
+        - Cliente
+      summary: API para eliminar cliente por id
+      operationId: deleteClient
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Cleinte eliminado
+          content:
+            '*/*':
+              schema:
+                type: string
+        '404':
+          description: Cliente no encontrado
+          content:
+            '*/*':
+              schema:
+                type: string
+  /api/articulo/{id}:
+    get:
+      tags:
+        - Articulo
+      summary: API para obtener Articulos por id
+      operationId: getArticulo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Articulo encontrado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ArticuloDTO'
+        '404':
+          description: Articulo no encontrado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ArticuloDTO'
+    put:
+      tags:
+        - Articulo
+      summary: API para actualizar Articulo
+      operationId: updateArticulo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArticuloDTO'
+        required: true
+      responses:
+        '200':
+          description: Articulo actualizado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ArticuloDTO'
+        '400':
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ArticuloDTO'
+        '404':
+          description: Articulo no encontrado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ArticuloDTO'
+    delete:
+      tags:
+        - Articulo
+      summary: API para eliminar Articulo por id
+      operationId: deleteArticulo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Articulo eliminado
+        '404':
+          description: Articulo no encontrado
+  /api/orden:
+    get:
+      tags:
+        - Orden
+      summary: API para obtener todos los Ordenes
+      operationId: getAllOrder
+      responses:
+        '200':
+          description: Ordenes encontrados
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrdenDTO'
+        '404':
+          description: Ordenes no encontrado
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrdenDTO'
+    post:
+      tags:
+        - Orden
+      summary: API para crear Orden
+      operationId: createOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrdenRequestDTO'
+        required: true
+      responses:
+        '201':
+          description: Orden creado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrdenDTO'
+        '400':
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrdenDTO'
+        '409':
+          description: Orden ya existe
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrdenDTO'
+  /api/cliente:
+    get:
+      tags:
+        - Cliente
+      summary: API para obtener todos los Clientes
+      operationId: getAllClients
+      responses:
+        '200':
+          description: Clientes encontrados
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClienteDTO'
+        '404':
+          description: Cliente no encontrado
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClienteDTO'
+    post:
+      tags:
+        - Cliente
+      summary: API para crear Cliente
+      operationId: createClient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClienteRequestDTO'
+        required: true
+      responses:
+        '201':
+          description: Cliente creado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClienteRequestDTO'
+        '400':
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClienteRequestDTO'
+        '409':
+          description: Cliente ya existe
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClienteRequestDTO'
+  /api/articulo:
+    get:
+      tags:
+        - Articulo
+      summary: API para obtener todos los Articulos
+      operationId: getAllArticulo
+      responses:
+        '200':
+          description: Articulos encontrados
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ArticuloDTO'
+        '404':
+          description: Articulos no encontrado
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ArticuloDTO'
+    post:
+      tags:
+        - Articulo
+      summary: API para crear Articulo
+      operationId: createArticulo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArticuloDTO'
+        required: true
+      responses:
+        '201':
+          description: Articulo creado
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ArticuloDTO'
+        '400':
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ArticuloDTO'
+        '409':
+          description: Articulo ya existe
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ArticuloDTO'
+components:
+  schemas:
+    ArticuloDTO:
+      type: object
+      properties:
+        idArticulo:
+          type: integer
+          format: int64
+        nombreArticulo:
+          type: string
+        precioUnitario:
+          type: number
+          format: double
+    OrdenDTO:
+      type: object
+      properties:
+        idOrden:
+          type: string
+        fecha:
+          type: string
+          format: date-time
+        articulos:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArticuloDTO'
+    ClienteRequestDTO:
+      required:
+        - apellido
+        - nombre
+      type: object
+      properties:
+        idCliente:
+          type: integer
+          format: int64
+        nombre:
+          maxLength: 100
+          minLength: 3
+          type: string
+        apellido:
+          maxLength: 100
+          minLength: 3
+          type: string
+    OrdenRequestDTO:
+      type: object
+      properties:
+        idOrden:
+          type: string
+        fecha:
+          type: string
+          format: date-time
+        cliente:
+          $ref: '#/components/schemas/ClienteRequestDTO'
+        articulos:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArticuloDTO'
+    ClienteDTO:
+      type: object
+      properties:
+        idCliente:
+          type: integer
+          format: int64
+        nombre:
+          type: string
+        apellido:
+          type: string
+        ordenes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrdenDTO'

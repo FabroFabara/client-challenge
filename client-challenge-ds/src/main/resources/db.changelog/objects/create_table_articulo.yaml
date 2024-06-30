@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: id_create_table_articulo
+      author: fabriciofabara@gmail.com
+      changes:
+        - createTable:
+            tableName: articulo
+            columns:
+              - column:
+                  name: id_articulo
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: nombre_articulo
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: precio_unitario
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: id_orden
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: true
+            foreignKeys:
+              - foreignKey:
+                  baseColumnNames: id_orden
+                  baseTableName: articulo
+                  referencedTableName: orden
+                  referencedColumnNames: id_orden

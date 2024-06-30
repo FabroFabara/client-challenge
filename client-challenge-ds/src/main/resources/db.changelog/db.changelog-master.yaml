@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db.changelog/objects/create_table_cliente.yaml
+  - include:
+      file: db.changelog/objects/create_table_orden.yaml
+  - include:
+      file: db.changelog/objects/create_table_articulo.yaml

@@ -1,0 +1,41 @@
+version: "3.9"
+services:
+  api:
+    container_name: cliente-api
+    command: mvn spring-boot:run -pl client-challenge-ws
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - postgres-network
+
+  postgres:
+    container_name: postgres
+    image: "postgres:latest"
+    restart: always
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "interviewDB"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 5s
+      retries: 10
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+
+volumes:
+  postgres_data:

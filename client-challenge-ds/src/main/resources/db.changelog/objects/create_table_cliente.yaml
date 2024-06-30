@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: id_create_table_cliente
+      author: fabriciofabara@gmail.com
+      changes:
+        - createTable:
+            tableName: cliente
+            columns:
+              - column:
+                  name: id_cliente
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: nombre
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: apellido
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
