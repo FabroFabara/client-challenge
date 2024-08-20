@@ -35,6 +35,9 @@ public class Articulo {
     @Column(name = "precio_unitario")
     private double precioUnitario;
 
+    @Column
+    private Integer stock;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_orden", referencedColumnName = "id_orden")
     private Orden orden;

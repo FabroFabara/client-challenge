@@ -1,48 +1,37 @@
 databaseChangeLog:
   - changeSet:
-      id: id_create_table_articulo
+      id: id_create_table_detalle_orden
       author: fabriciofabara@gmail.com
       changes:
         - createTable:
-            tableName: articulo
+            tableName: detalle_orden
             columns:
               - column:
-                  name: id_articulo
+                  name: id_detalle
                   type: BIGINT
                   autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: nombre_articulo
-                  type: VARCHAR(255)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: precio_unitario
-                  type: DOUBLE
-                  constraints:
-                    nullable: false
-              - column:
                   name: id_orden
                   type: VARCHAR(255)
                   constraints:
-                    nullable: true
-            foreignKeys:
-              - foreignKey:
-                  baseColumnNames: id_orden
-                  baseTableName: articulo
-                  referencedTableName: orden
-                  referencedColumnNames: id_orden
+                    nullable: false
+              - column:
+                  name: id_articulo
+                  type: BIGINT
+                  constraints:
+                    nullable: false
 
   - changeSet:
-      id: id_add_column_stock
+      id: id_add_column_cantidad
       author: fabriciofabara@gmail.com
       changes:
         - addColumn:
-            tableName: articulo
+            tableName: detalle_orden
             columns:
-              name: stock
+              name: cantidad
               type: BIGINT
               constraints:
                 nullable: true

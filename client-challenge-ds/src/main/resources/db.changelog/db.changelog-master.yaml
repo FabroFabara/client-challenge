@@ -5,3 +5,5 @@ databaseChangeLog:
       file: db.changelog/objects/create_table_orden.yaml
   - include:
       file: db.changelog/objects/create_table_articulo.yaml
+  - include:
+      file: db.changelog/objects/create_table_orde_articulo.yaml

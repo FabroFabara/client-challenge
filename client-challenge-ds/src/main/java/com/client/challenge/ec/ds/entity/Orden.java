@@ -33,6 +33,9 @@ public class Orden {
     @Column(name = "fecha")
     private LocalDateTime fecha;
 
+    @Column(name = "cantidad")
+    private Integer cantidad;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
     private Cliente cliente;

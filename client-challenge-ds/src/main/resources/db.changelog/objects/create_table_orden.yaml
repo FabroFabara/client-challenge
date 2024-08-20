@@ -28,3 +28,15 @@ databaseChangeLog:
                   baseTableName: orden
                   referencedTableName: cliente
                   referencedColumnNames: id_cliente
+  - changeSet:
+      id: id_add_column_cantidad
+      author: fabriciofabara@gmail.com
+      changes:
+        - addColumn:
+            tableName: orden
+            columns:
+              name: cantidad
+              type: BIGINT
+              constraints:
+                nullable: true
+

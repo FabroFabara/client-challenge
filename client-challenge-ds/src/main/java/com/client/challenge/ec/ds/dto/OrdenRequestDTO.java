@@ -24,5 +24,7 @@ public class OrdenRequestDTO {
 
     private ClienteRequestDTO cliente;
 
+    private Integer cantidad;
+
     private List<ArticuloDTO> articulos;
 }

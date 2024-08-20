@@ -7,6 +7,7 @@ import com.client.challenge.ec.bs.service.OrdenService;
 import com.client.challenge.ec.ds.entity.Articulo;
 import com.client.challenge.ec.ds.entity.Cliente;
 import com.client.challenge.ec.ds.entity.Orden;
+import com.client.challenge.ec.ds.entity.OrdenArticulo;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +25,14 @@ public class OrdenServiceImpl extends GenericCRUDImpl<Orden, String> implements 
 
     private final ClienteServiceImpl clienteService;
 
+    private final OrdenArticuloImpl ordenArticuloService;
+
     @Autowired
-    public OrdenServiceImpl(OrdenRepository ordenRepository, ArticuloServiceImpl articuloService, ClienteServiceImpl clienteService) {
+    public OrdenServiceImpl(OrdenRepository ordenRepository, ArticuloServiceImpl articuloService, ClienteServiceImpl clienteService, OrdenArticuloImpl ordenArticuloService) {
         this.ordenRepository = ordenRepository;
         this.articuloService = articuloService;
         this.clienteService = clienteService;
+        this.ordenArticuloService = ordenArticuloService;
     }
 
     @Override
@@ -43,6 +47,7 @@ public class OrdenServiceImpl extends GenericCRUDImpl<Orden, String> implements 
         Orden savedOrden = ordenRepository.save(orden);
         almacenarArticulo(savedOrden);
         savedOrden.setArticulos(orden.getArticulos());
+        saveTransaction(orden);
         return savedOrden;
     }
 
@@ -58,6 +63,8 @@ public class OrdenServiceImpl extends GenericCRUDImpl<Orden, String> implements 
         if (Objects.isNull(orden.getArticulos()) || orden.getArticulos().isEmpty()) {
             throw new Exception("Articulos no puede ser nulo o vacio");
         }
+
+        validarCantidadStock(orden);
     }
 
     private void almacenarArticulo(Orden orden) {
@@ -75,6 +82,8 @@ public class OrdenServiceImpl extends GenericCRUDImpl<Orden, String> implements 
 
     private Articulo findAndSetOrden(Articulo articulo, Orden orden) {
         Articulo foundArticulo = findArticuloById(articulo);
+        int newStock = foundArticulo.getStock() - orden.getCantidad();
+        foundArticulo.setStock(newStock);
         foundArticulo.setOrden(orden);
         return foundArticulo;
     }
@@ -89,9 +98,32 @@ public class OrdenServiceImpl extends GenericCRUDImpl<Orden, String> implements 
 
     private void saveArticulo(Articulo articulo) {
         try {
+
             articuloService.save(articulo);
         } catch (Exception e) {
             throw new RuntimeException(String.format("Error al guardar el articulo con id %s", articulo.getIdArticulo()), e);
         }
+    }
+
+    private void validarCantidadStock(Orden orden) throws Exception {
+       for (Articulo articulo: orden.getArticulos()){
+           Articulo articuloValidar = articuloService.findById(articulo.getIdArticulo());
+           if(orden.getCantidad() > articuloValidar.getStock()){
+               throw new Exception(String.format(("Error la cantidad enviada %s no puede ser mayor al stock %s"),
+                       orden.getCantidad(), articuloValidar.getStock()));
+           }
+       }
+    }
+
+    private void saveTransaction(Orden orden) throws Exception {
+        OrdenArticulo ordenArticulo = null;
+        for (Articulo articulo: orden.getArticulos()){
+            ordenArticulo  = OrdenArticulo.builder()
+                    .idOrden(orden.getIdOrden())
+                    .idArticulo(articulo.getIdArticulo())
+                    .cantidad(orden.getCantidad())
+                    .build();
+        }
+        ordenArticuloService.save(ordenArticulo);
     }
 }
